@@ -11,18 +11,39 @@
     </header>
 
     <main>
-        <img src="banner.jpg" width="100%">
-        <h2>About LMS</h2>
-        <p>The Learning Management System (LMS) helps students and instructors manage courses, quizzes, and track performance efficiently.</p>
+        <div>
+            <img src="banner.jpg" width="100%">
+        </div>
+        <h2>Course Name: Web Development</h2>
+        <h2>Course Code: WD381</h2>
+        <div>
+            <p>Topic: HTML Basics</p>
+            <p>Deadline: 11:59 PM, February 10, 2025</p>
+            <p>Attempts Allowed: 1</p>
+        </div>
+        <div>
+            <h3>Question 1</h3>
+            <p>What does HTML stand for?</p>
+            <input type="radio" name="q1" id="q1a1">
+            <label for="q1a1">Hyper Text Markup Language</label><br>
+            <input type="radio" name="q1" id="q1a2">
+            <label for="q1a2">Home Tool Markup Language</label><br>
+            <button>Submit Answer</button>
+        </div>
+        <div>
+            <h3>Question 2</h3>
+            <p>Which of the following are HTML elements? (Select all that apply)</p>
+            <input type="checkbox" id="q2a1">
+            <label for="q2a1">&lt;div&gt;</label><br>
+            <input type="checkbox" id="q2a2">
+            <label for="q2a2">&lt;span&gt;</label><br>
+            <button>Submit Answer</button>
+        </div>
         <br>
-        <h3>Key Features:</h3>
-        <ul>
-            <li>Enroll in courses</li>
-            <li>Attempt quizzes</li>
-            <li>View leaderboards</li>
-        </ul>
+        <a href="leaderboard.html"> <button>Finish Quiz</button> </a>
     </main>
-
+    
+    <br>
     <footer>
         © 2025 LMS. All rights reserved.
     </footer>
