@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lab4 - Exercise 1</title>
+    <title>Lab4 - Exercise 3</title>
 </head>
     <body>
         <h1>JavaScript Lab</h1>
         <script>
-        // Write your JavaScript code here
-            class classInfo{
-                constructor()
-            }
+            // Arrays and Basic Methods
             let classRoster=["Alice","Tom","Charlie","Diana","Evan"]
             console.log(classRoster.toString())
             console.log(classRoster)
@@ -19,6 +16,40 @@
             console.log(classRoster)
             console.log(classRoster.length)
 
+            // Objects with Nested Structures.
+            let classInfo = {
+                className: "ENSF381: Full-Stack Web Development",
+                instructor: "Dr. Smith",
+                students: classRoster,
+                details: details = {
+                    semester: "Winter",
+                    year: 2025
+                },
+                schedule: ["Monday", "Wednesday", "Friday"]
+            };
+
+            classInfo.instructor = "Dr. Deb";
+            console.log(classInfo.className)
+            console.log(classInfo.instructor)
+            console.log(classInfo.students)
+
+            console.log(classInfo.details.semester)
+            console.log(classInfo)
+
+            let className = classInfo.className
+            let students = classInfo.students
+            console.log(className)
+            console.log(students)
+
+            let semester = classInfo.details.semester
+            let year = classInfo.details.year
+            console.log(semester)
+            console.log(year)
+
+            let [student1, student2, ...remainingStudents] = classRoster;
+            console.log(student1)
+            console.log(student2)
+            console.log(remainingStudents)
 
         </script>
     </body>
