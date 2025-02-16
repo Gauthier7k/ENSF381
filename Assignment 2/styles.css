@@ -1,3 +1,7 @@
+html {
+    font-family: Arial;
+}
+
 header {
     background-color: #004080;
     padding: 20px;
@@ -21,11 +25,22 @@ footer {
     padding: 10px;
 }
 
-a {
+.navBarItems {
     text-decoration: none;
     color: white;
 }
 
-a:hover {
+.navBarItems:hover {
     text-decoration: underline;
+}
+
+h2 {
+    color: #003366;
+}
+
+.index {
+    background-color: #d4d4d4;
+    text-align: center;
+    padding: 20px;
+    margin: 20px; /* This creates the whitespace around the grey space. */
 }
