@@ -13,3 +13,19 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+.navBar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
