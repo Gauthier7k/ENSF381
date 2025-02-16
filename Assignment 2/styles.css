@@ -3,10 +3,13 @@ header {
     padding: 20px;
     margin: 0px;
     color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
     background-color: #004080;
     color: white;
     padding: 10px;
+    text-align: center;
 }
