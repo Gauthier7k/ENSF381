@@ -44,3 +44,57 @@ h2 {
     padding: 20px;
     margin: 20px; /* This creates the whitespace around the grey space. */
 }
+
+.loginForm {
+    display: flex;
+    text-align: center;
+    background-color: #d4d4d4;
+    padding: 30px;
+    margin: 0px 150px;
+    border-radius: 30px;
+    flex-direction: column;
+    box-shadow: 5px 5px;
+}
+
+.inputFields {
+    background-color: lightyellow;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: darkgray;
+    border-width: 3px;
+    width: 300px;
+}
+
+.loginLink {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.loginButton {
+    background-color: #008000;
+    color: white;
+    padding: 10px;
+    border-width: 0px;
+    border-radius: 5px;
+}
+
+.loginButton:hover {
+    background-color: #006600;
+}
+
+.passwordLink {
+    display: flex;
+    color: #004080;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.passwordLink:hover {
+    text-decoration: underline;
+}
+
+#centre {
+    text-align: center;
+}
