@@ -8,49 +8,67 @@
     <header>
         <img src="logo.jpg" width="100px">
         <h1>LMS - Learning Management System</h1>
-        <h2>LMS - Attempt Quiz</h2>
     </header>
     <div class="navBar">
-        <a href="index.html">Homepage</a> | <a href="course_view.html">Courses</a>
+        <a href="index.html" class="navBarItems">Homepage</a>
+        <a href="course_view.html" class="navBarItems">Courses</a>
     </div>
 <br>
 <br>
     <main>
         <div>
-            <img src="banner.jpg" width="100%">
+            <img src="banner.jpg" width="100%" class="quizBanner">
         </div>
-        <h2>Course Name: Web Development</h2>
-        <h2>Course Code: WD381</h2>
-        <div>
+
+        <div class="details">
+            <h2>Course Name: Web Development</h2>
+            <h2>Course Code: WD381</h2>
             <p>Topic: HTML Basics</p>
             <p>Deadline: 11:59 PM, February 10, 2025</p>
             <p>Attempts Allowed: 1</p>
         </div>
-        <div>
+
+        <div class="questions">
             <h3>Question 1</h3>
             <p>What does HTML stand for?</p>
-            <input type="radio" name="q1" id="q1a1">
-            <label for="q1a1">Hyper Text Markup Language</label><br>
-            <input type="radio" name="q1" id="q1a2">
-            <label for="q1a2">Home Tool Markup Language</label><br>
-            <button>Submit Answer</button>
         </div>
-        <div>
-            <h3>Question 2</h3>
-            <p>Which of the following are HTML elements? (Select all that apply)</p>
-            <input type="checkbox" id="q2a1">
-            <label for="q2a1">&lt;div&gt;</label><br>
-            <input type="checkbox" id="q2a2">
-            <label for="q2a2">&lt;span&gt;</label><br>
-            <button>Submit Answer</button>
+        <div class="answers">
+            <div class="answersElement">
+                <input type="radio" name="q1" id="q1a1">
+                <label for="q1a1">Hyper Text Markup Language</label>
+            </div>
+            <div class="answersElement">
+                <input type="radio" name="q1" id="q1a2">
+                <label for="q1a2">Home Tool Markup Language</label>
+            </div>
         </div>
         <br>
-        <a href="leaderboard.html"> <button>Finish Quiz</button> </a>
+        <button class="submit">Submit Answer</button>
+
+        <div class="questions">
+            <h3>Question 2</h3>
+            <p>Which of the following are HTML elements? (Select all that apply)</p>
+            </div>
+        <div class="answers">
+            <div class="answersElement"> 
+                <input type="checkbox" id="q2a1">
+                <label for="q2a1">&lt;div&gt;</label>
+            </div>
+
+            <div class="answersElement">
+                <input type="checkbox" id="q2a2">
+                <label for="q2a2">&lt;span&gt;</label>
+            </div>
+        </div>
+        <br>
+        <button class="submit">Submit Answer</button>
+        <br>
+        <a href="leaderboard.html" class="clearFormat"> <button class="finish">Finish Quiz</button> </a>
     </main>
 
     <br>
     <footer>
-        © 2025 LMS. All rights reserved.
+        <p>© 2025 LMS. All rights reserved.</p>
     </footer>
 </body>
 </html>

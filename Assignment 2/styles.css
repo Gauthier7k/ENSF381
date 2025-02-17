@@ -1,5 +1,14 @@
+/* General stylings for all html files. */
 html {
     font-family: Arial;
+}
+
+#centre {
+    text-align: center;
+}
+
+.clearFormat {
+    text-decoration: none;
 }
 
 header {
@@ -38,6 +47,7 @@ h2 {
     color: #003366;
 }
 
+/* Stylings for homepage (index.html) */
 .index {
     background-color: #d4d4d4;
     text-align: center;
@@ -45,6 +55,8 @@ h2 {
     margin: 20px; /* This creates the whitespace around the grey space. */
 }
 
+
+/* Stylings for login page. */
 .loginForm {
     display: flex;
     text-align: center;
@@ -95,6 +107,62 @@ h2 {
     text-decoration: underline;
 }
 
-#centre {
+
+/* Stylings for attempt_quiz page. */
+.quizBanner {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.details {
+    background-color: lightblue;
+    padding: 20px;
     text-align: center;
+    margin: 0px 250px;
+}
+
+.questions {
+    text-align: center;
+}
+
+.answers {
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    background-color: #cacaca;
+    padding: 10px;
+    width: 250px;
+}
+
+.answerElement {
+    text-align: left;
+}
+
+.submit {
+    display: flex;
+    justify-self: center;
+    background-color: lightblue;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 10px;
+}
+
+.submit:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.finish {
+    display: flex;
+    justify-self: center;
+    background-color: #d32f2f;
+    color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 10px;
+}
+
+.finish:hover {
+    background-color: #821b1b;
 }
