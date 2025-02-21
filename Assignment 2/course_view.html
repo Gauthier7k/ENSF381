@@ -4,21 +4,18 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <header>
+    <title>LMS - Course View</title>
     <img src="logo.jpg" width="100px">
     <br>
     <h1>LMS - Learning Management System</h1>
-    <h2>LMS - Course View</h2>
 </header>
 
 <div class="navBar">
-    <a href="index.html">Homepage</a>
-    <br>
-    <br>
-    <br>
+    <a href="index.html" class="navBarItems">Homepage</a>
 </div>
-
+<br>
 <main>
-    <form>
+    <form class="center-dropdown">
         <label for="term">Select Term: </label>
         <select id="term" name="term">
             <option>Winter 2025</option>
@@ -28,73 +25,85 @@
         </select>
     </form>
     
-    <h2>Enrolled Courses</h2>
-    <hr>
-    <table>
+    <h2 class="centered-heading">Enrolled Courses</h2>
+    <hr id="light-grey-hr">
+    <table class="course-table">
         <tr>
-            <td><img src="course1.jpg" width="250px"></td>
-            <td><img src="course1.jpg" width="250px"></td>
-            <td><img src="course1.jpg" width="250px"></td>
-        </tr>
-        <tr>
-            <td><br>Course Name: Web Development</td>
-            <td><br>Course Name: Data Structures</td>
-            <td><br>Course Name: DBMS</td>
-        </tr>
-        <tr>
-            <td><br>Course Code: WD381</td>
-            <td><br>Course Code: DS371</td>
-            <td><br>Course Code: DB346</td>
-        </tr>
-        <tr>
-            <td><br><a href="attempt_quiz.html">Attempt Quiz</a></td>
-            <td><br><a href="attempt_quiz.html">Attempt Quiz</a></td>
-            <td><br><a href="attempt_quiz.html">Attempt Quiz</a></td>
-        </tr>
-        <tr>
-            <td><img src="course1.jpg" width="250px"></td>
-            <td><img src="course1.jpg" width="250px"></td>
-        </tr>
-        <tr>
-            <td><br>Course Name: Software Testing</td>
-            <td><br>Course Name: Software Architectures</td>
-        </tr>
-        <tr>
-            <td><br>Course Code: ST484</td>
-            <td><br>Course Code: SA396</td>
-        </tr>
-        <tr>
-            <td><br><a href="attempt_quiz.html">Attempt Quiz</a></td>
-            <td><br><a href="attempt_quiz.html">Attempt Quiz</a></td>
-        </tr>
-    </table>
-
-    <h2>Pending Invitations</h2>
-    <hr>
-    <table>
-        <tr>
-            <td><img src="course2.jpg" width="250px"></td>
-            <td><img src="course2.jpg" width="250px"></td>
-        </tr>
-        <tr>
-            <td><br>Course Name: Data Science</td>
-            <td><br>Course Name: Machine Learning</td>
-        </tr>
-        <tr>
-            <td><br>Course Code: DS102</td>
-            <td><br>Course Code: ML105</td>
+            <td>
+                <div class="course-tile">
+                    <img src="course1.jpg">
+                    <p class="course-name">Course Name: Web Development</p>
+                    <p class="course-code">Course Code: WD381</p>
+                    <a href="attempt_quiz.html" class="quiz-link">Attempt Quiz</a>
+                </div>
+            </td>
+            <td>
+                <div class="course-tile">
+                    <img src="course1.jpg">
+                    <p class="course-name">Course Name: Data Structures</p>
+                    <p class="course-code">Course Code: DS371</p>
+                    <a href="attempt_quiz.html" class="quiz-link">Attempt Quiz</a>
+                </div>
+            </td>
+            <td>
+                <div class="course-tile">
+                    <img src="course1.jpg">
+                    <p class="course-name">Course Name: DBMS</p>
+                    <p class="course-code">Course Code: DB346</p>
+                    <a href="attempt_quiz.html" class="quiz-link">Attempt Quiz</a>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>
-                <br><button type="button" style="border-width: 2px; border-color: black; background-color: lightgreen;">Accept</button>
-                <button type="button" style="border-width: 2px; border-color: black; background-color: lightcoral;">Decline</button>
+                <div class="course-tile">
+                    <img src="course1.jpg">
+                    <p class="course-name">Course Name: Software Testing</p>
+                    <p class="course-code">Course Code: ST484</p>
+                    <a href="attempt_quiz.html" class="quiz-link">Attempt Quiz</a>
+                </div>
             </td>
             <td>
-                <br><button type="button" style="border-width: 2px; border-color: black; background-color: lightgreen;">Accept</button>
-                <button type="button" style="border-width: 2px; border-color: black; background-color: lightcoral;">Decline</button>
+                <div class="course-tile">
+                    <img src="course1.jpg">
+                    <p class="course-name">Course Name: Software Architectures</p>
+                    <p class="course-code">Course Code: SA396</p>
+                    <a href="attempt_quiz.html" class="quiz-link">Attempt Quiz</a>
+                </div>
             </td>
         </tr>
     </table>
+    <br>
+    <h2 class="centered-heading">Pending Invitations</h2>
+    <hr>
+    <table class="pending-table">
+        <tr>
+            <td>
+                <div class="course-tile">
+                    <img src="course2.jpg">
+                    <p class="course-name">Course Name: Data Science</p>
+                    <p class="course-code">Course Code: DS102</p>
+                    <div class="button-group">
+                        <button type="button" class="accept-btn">Accept</button>
+                        <button type="button" class="decline-btn">Decline</button>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="course-tile">
+                    <img src="course2.jpg">
+                    <p class="course-name">Course Name: Machine Learning</p>
+                    <p class="course-code">Course Code: ML105</p>
+                    <div class="button-group">
+                        <button type="button" class="accept-btn">Accept</button>
+                        <button type="button" class="decline-btn">Decline</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
 </main>
 
 <footer>

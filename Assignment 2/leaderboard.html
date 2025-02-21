@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
+<body>
+
 <header>
     <img src="logo.jpg" width="100px">
     <br>
@@ -10,17 +12,18 @@
 </header>
 
 <div class="navBar">
-    <a href="index.html">Homepage</a>
-     | 
-    <a href="course_view.html">Courses</a>
+    <a href="index.html" class="navBarItems">Homepage</a>
+    <a></a>
+    <a href="course_view.html" class="navBarItems">Courses</a>
 </div>
 
 <main>
     <br>
     <br>
-    <table style="width: 100%; text-align: center; border-collapse: collapse; font-size: 20px;" border="1px">
+    <br>
+    <table class="leaderboard-table">
         <tr>
-            <th colspan="5" style="background-color: green; color: white; font-size: 40px;">Leaderboard</th>
+            <th colspan="5" class="leaderboard-header">Leaderboard</th>
         </tr>
         <tr>
             <th>Rank</th>
@@ -29,52 +32,55 @@
             <th>Total Score</th>
             <th>Course</th>
         </tr>
-        <tr style="background-color: gold;">
+        <tr class="gold-rank">
             <td>1</td>
-            <td><img src="student.png" width="50px"></td>
+            <td><img src="student.png" alt="John Doe's Profile" class="profile-pic"></td>
             <td>John Doe</td>
             <td>95</td>
             <td>Web Development</td>
         </tr>
-        <tr style="background-color: silver;">
+        <tr class="silver-rank">
             <td rowspan="2">2</td>
-            <td><img src="student.png" width="50px"></td>
+            <td><img src="student.png" alt="Jane Smith's Profile" class="profile-pic"></td>
             <td>Jane Smith</td>
             <td>90</td>
             <td>Data Structures</td>
         </tr>
-        <tr style="background-color: silver;">
-            <td><img src="student.png" width="50px"></td>
+        <tr class="silver-rank">
+            <td><img src="student.png" alt="Emily White's Profile" class="profile-pic"></td>
             <td>Emily White</td>
             <td>90</td>
             <td>Algorithms</td>
         </tr>
-        <tr style="background-color: burlywood;">
+        <tr class="bronze-rank">
             <td>3</td>
-            <td><img src="student.png" width="50px"></td>
+            <td><img src="student.png" alt="Michael Brown's Profile" class="profile-pic"></td>
             <td>Michael Brown</td>
             <td>85</td>
             <td>Machine Learning</td>
         </tr>
-        <tr>
+        <tr class="alternate-row-1">
             <td>4</td>
-            <td><img src="student.png" width="50px"></td>
+            <td><img src="student.png" alt="Sarah Johnson's Profile" class="profile-pic"></td>
             <td>Sarah Johnson</td>
             <td>80</td>
             <td>Networking</td>
         </tr>
-        <tr style="background-color: lightgray;">
-            <td>4</td>
-            <td><img src="student.png" width="50px"></td>
+        <tr class="alternate-row-2">
+            <td>5</td>
+            <td><img src="student.png" alt="Rob Miller's Profile" class="profile-pic"></td>
             <td>Rob Miller</td>
             <td>75</td>
             <td>Networking</td>
         </tr>
     </table>
+    <br>
 </main>
 
 <footer>
     <br>
     © 2025 LMS. All rights reserved.
 </footer>
+
+</body>
 </html>
