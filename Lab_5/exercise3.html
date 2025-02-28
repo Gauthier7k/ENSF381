@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lab5 - Exercise 1</title>
+    <title>Lab5 - Exercise 3</title>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Type something here...">
+    <input type="text" id="textInput" placeholder="Enter a used number (1-30)">
     <label id="textLabel"></label>
     <button id="redButton">Red</button>
     <button id="blueButton">Blue</button>
@@ -19,6 +19,7 @@
         try{
             const response = await fetch(url);
             const json = await response.json();
+            console.log(json);
             return json;
         }
         catch(error) {console.log(error)}
