@@ -4,8 +4,7 @@
     <title>Lab5 - Exercise 1</title>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Type something
-    here..."/>
+    <input type="text" id="textInput" placeholder="Type something here...">
     <label id="textLabel"></label>
     <button id="redButton">Red</button>
     <button id="blueButton">Blue</button>
@@ -14,6 +13,41 @@
     <button id="purpleButton">Purple</button>
 </body>
 <script type="text/javascript">
-<!-- Your JavaScript code will go here -->
+    var label = document.getElementById("textLabel");
+    const textBox = document.getElementById('textInput');
+    textBox.addEventListener('keypress', () => {
+        if (event.key === "Enter") {
+            label.textContent = textBox.value;
+            textBox.value = '';
+        }
+    });
+
+    const redBut = document.getElementById('redButton');
+    redBut.addEventListener('click', () => {
+        label.style.color = 'red';
+    });
+
+    const blueBut = document.getElementById('blueButton');
+    blueBut.addEventListener('click', () => {
+        label.style.color = 'blue';
+    });
+
+    const greenBut = document.getElementById('greenButton');
+    greenBut.addEventListener('click', () => {
+        label.style.color = 'green';
+    });
+
+    const orangeBut = document.getElementById('orangeButton');
+    orangeBut.addEventListener('click', () => {
+        label.style.color = 'orange';
+    });
+
+    const purpleBut = document.getElementById('purpleButton');
+    purpleBut.addEventListener('click', () => {
+        label.style.color = 'purple';
+    });
+        
+
+
 </script>
 </html>
