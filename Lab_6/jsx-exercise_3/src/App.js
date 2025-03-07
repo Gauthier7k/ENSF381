@@ -28,11 +28,11 @@ function App() {
 
       <p>{currentYear.getFullYear()}</p>
       {MyComponent(isLoggedIn)}
-
+      <EngineeringTopics/>
     </div>
   );
 }
 
-<EngineeringTopics/>
+
 
 export default App;
