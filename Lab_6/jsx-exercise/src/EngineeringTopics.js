@@ -10,7 +10,7 @@ const topics = [
 function EngineeringTopics() {
 return (
     <div>
-    <h2>Engineering Topic</h2>
+    <h2>Engineering Topics</h2>
     {topics.map(function(item) {
         return (
             <div>
