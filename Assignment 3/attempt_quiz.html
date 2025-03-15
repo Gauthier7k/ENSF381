@@ -67,8 +67,6 @@
     </footer>
 
     <script>
-        
-
         function timer() {
             var m1 = 1;
             var m0 = 0;
@@ -112,14 +110,17 @@
             timer.textContent = "Time Remaining: " + time;
         }
 
-        var score = 0;
         var q1Done = false;
         var q2Done = false;
+        var q1Correct = false;
+        var q2aCorrect = false;
+        var q2bCorrect = false;
+
         function q1validation() {
             var q1a = document.getElementById("q1a").checked;
             var q1b = document.getElementById("q1b").checked;
             if (q1a) {
-                score = score + 50;
+                q1Correct = true;
             }
 
             if (!(q1a || q1b)) {
@@ -135,10 +136,10 @@
             var q2a = document.getElementById("q2a").checked;
             var q2b = document.getElementById("q2b").checked;
             if (q2a) {
-                score = score + 25;
+                q2aCorrect = true;
             }
             if (q2b) {
-                score = score + 25;
+                q2bCorrect = true;
             }
 
             if (!(q2a || q2b)) {
@@ -151,9 +152,21 @@
         }
         
         function done() {
+            var score = 0;
             if (q1Done && q2Done) {
                 document.getElementById("scoreTable").border = "2px";
                 document.getElementById("scoreTable").style.backgroundColor = "lightblue";
+                if (q1Correct) {
+                    score = score + 50;
+                }
+                
+                if (q2aCorrect && q2bCorrect) {
+                    score = score + 50;
+                }
+                else {
+                    score = score + 25;
+                }
+
                 document.getElementById("score").textContent = "Score: " + score + "/100";
             }
         }
