@@ -28,9 +28,17 @@
         </form> 
         <br>
         <br>  
-                <button onclick=verifyLogin()>Login</button>
-            <br><br>
-            <a href="#">Forgot Password?</a>
+        <button onclick=verifyLogin()>Login</button>
+        <br><br>
+        <a href="#">Forgot Password?</a>
+        <br>
+        <a href="signup.html">Don't have an account? Sign Up</a>
+        <br>
+
+
+        <table id="box">
+            <tr><td id="loginSuccess"></td></tr>
+        </table>
         
     </main>
     <footer>
@@ -64,8 +72,21 @@
                 }
             }
 
+            var box = document.getElementById("box");
+            box.border = "2px";
+            box.style.borderCollapse = "collapse";
+   
+            
+            var text = document.getElementById("loginSuccess");
+            text.style.padding = "10px";
+            
+
             if (isVerified) {
-                console.log("Yes");
+                text.textContent = "Login successful! Redirecting...";
+                setTimeout(()=>{window.location.href = "course_view.html";}, 2000);
+            }
+            else {
+                text.textContent = "Invalid username or password!";
             }
         }
         
