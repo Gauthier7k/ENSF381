@@ -6,7 +6,7 @@
     <title>Attempt Quiz - LMS</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body onload=timer()>
     <header>
         <img src="logo.jpg" alt="LMS Logo" style="width: 100px; height: 100px;">
         <h1>LMS - Learning Management System</h1>
@@ -57,5 +57,46 @@
     <footer>
         <p>&copy; 2025 LMS. All rights reserved.</p>
     </footer>
+
+    <script>
+        function timer() {
+            var m1 = 0;
+            var m0 = 0;
+            var s1 = 2;
+            var s0 = 0;
+            setInterval(()=>{window.location.href = "leaderboard.html";}, 600_000); // 600_000ms is 10 minutes.
+            setInterval(()=>{
+                if (m1 == 1) {
+                    m1 = "0";
+                }
+
+                if (m0 == 0 && (s1 == 0 && s0 == 0)) {
+                    m0 = 9;
+                }
+                else if (s1 == 0 && s0 == 0) {
+                    m0--;
+                }
+
+                if (s1 == 0 && s0 == 0) {
+                    s1 = 5;
+                }
+                else if (s0 == 0) {
+                  s1--;
+                }
+
+                if (s0 == 0) {
+                    s0 = 9;
+                }
+                else {
+                    s0--;
+                }
+
+                //console.log(m1 + m0 + ":" + s1 + s0);
+
+            }, 1000);
+        }
+
+
+    </script>
 </body>
 </html>
