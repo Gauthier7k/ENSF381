@@ -27,6 +27,10 @@
             <p>Attempts Allowed: 1</p>
         </div>
         
+        <table border="2px" style="width: 300px; border-collapse: collapse; justify-self: center;">
+            <tr><td><h1 id="timer"></h1></td></tr>
+        </table>
+
         <h3>Question 1</h3>
         <p>What does HTML stand for?</p>
         <div class="Qs">
@@ -59,12 +63,15 @@
     </footer>
 
     <script>
+        
+
         function timer() {
             var m1 = 0;
             var m0 = 0;
             var s1 = 2;
             var s0 = 0;
             setInterval(()=>{window.location.href = "leaderboard.html";}, 600_000); // 600_000ms is 10 minutes.
+            display(m1 + m0 + ":" + s1 + s0);
             setInterval(()=>{
                 if (m1 == 1) {
                     m1 = "0";
@@ -91,9 +98,14 @@
                     s0--;
                 }
 
-                //console.log(m1 + m0 + ":" + s1 + s0);
+                display(m1 + m0 + ":" + s1 + s0);
 
             }, 1000);
+        }
+
+        function display(time) {
+            var timer = document.getElementById("timer");
+            timer.textContent = "Time Remaining: " + time;
         }
 
 
