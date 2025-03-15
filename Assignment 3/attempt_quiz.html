@@ -27,7 +27,7 @@
             <p>Attempts Allowed: 1</p>
         </div>
         
-        <table border="2px" style="width: 300px; border-collapse: collapse; justify-self: center;">
+        <table border="2px" style="width: 300px; border-collapse: collapse; justify-self: center; background-color: lightblue;">
             <tr><td><h1 id="timer"></h1></td></tr>
         </table>
 
@@ -40,7 +40,7 @@
             <label for="q1b">Home Tool Markup Language</label><br>
         </div>
         <br>
-        <button class="ans">Submit Answer</button>
+        <button class="ans" onclick=q1validation()>Submit Answer</button>
         
         <h3>Question 2</h3>
         <p>Which of the following are HTML elements? (Select all that apply)</p>
@@ -51,8 +51,12 @@
         <label for="q2b">&lt;span&gt;</label><br>
         </div>
         <br>
-        <button class="ans">Submit Answer</button>
+        <button class="ans" onclick=q2validation()>Submit Answer</button>
         
+        <table id="scoreTable" style="width: 300px; border-collapse: collapse; justify-self: center;">
+            <tr><td><h2 id="score"></h2></td></tr>
+        </table>
+
         <br><br>
         <a href="leaderboard.html">
             <button class="FinQz">Finish Quiz</button>
@@ -66,12 +70,12 @@
         
 
         function timer() {
-            var m1 = 0;
+            var m1 = 1;
             var m0 = 0;
-            var s1 = 2;
+            var s1 = 0;
             var s0 = 0;
             setInterval(()=>{window.location.href = "leaderboard.html";}, 600_000); // 600_000ms is 10 minutes.
-            display(m1 + m0 + ":" + s1 + s0);
+            display("10:00");
             setInterval(()=>{
                 if (m1 == 1) {
                     m1 = "0";
@@ -107,6 +111,54 @@
             var timer = document.getElementById("timer");
             timer.textContent = "Time Remaining: " + time;
         }
+
+        var score = 0;
+        var q1Done = false;
+        var q2Done = false;
+        function q1validation() {
+            var q1a = document.getElementById("q1a").checked;
+            var q1b = document.getElementById("q1b").checked;
+            if (q1a) {
+                score = score + 50;
+            }
+
+            if (!(q1a || q1b)) {
+                alert('Question 1 has not been answered.');
+            }
+            else {
+                q1Done = true;
+                done();
+            }
+        }
+
+        function q2validation() {
+            var q2a = document.getElementById("q2a").checked;
+            var q2b = document.getElementById("q2b").checked;
+            if (q2a) {
+                score = score + 25;
+            }
+            if (q2b) {
+                score = score + 25;
+            }
+
+            if (!(q2a || q2b)) {
+                alert('Question 2 has not been answered.');
+            }
+            else {
+                q2Done = true;
+                done();
+            }
+        }
+        
+        function done() {
+            if (q1Done && q2Done) {
+                document.getElementById("scoreTable").border = "2px";
+                document.getElementById("scoreTable").style.backgroundColor = "lightblue";
+                document.getElementById("score").textContent = "Score: " + score + "/100";
+            }
+        }
+        
+
 
 
     </script>
