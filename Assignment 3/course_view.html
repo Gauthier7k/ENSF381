@@ -1,120 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course View - LMS</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course View - LMS</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+
+    .course-tile:hover {
+      background-color: #ddecfc;
+    }
+
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.jpg" alt="LMS Logo" style="width: 100px; height: 100px;">
-        <h1>LMS - Learning Management System</h1>
-    </header>
-    <div>
-        <nav>
-            <a href="index.html">Homepage</a>
-        </nav>
-    </div>
+  <header>
+    <img src="logo.jpg" alt="LMS Logo" style="width: 100px; height: 100px;">
+    <h1>LMS - Learning Management System</h1>
+  </header>
+  <div>
+    <nav>
+      <a href="index.html">Homepage</a>
+    </nav>
+  </div>
+  
+  <main class="courseview">
+    <label for="term">Select Term:</label>
+    <select id="term" name="term">
+      <option value="Winter 2025">Winter 2025</option>
+      <option value="Winter 2024">Winter 2024</option>
+      <option value="Fall 2025">Fall 2025</option>
+      <option value="Fall 2024">Fall 2024</option>
+    </select>
     
-    <main class="courseview">
-        <label for="term">Select Term:</label>
-        <select id="term" name="term">
-            <option value="Winter 2025">Winter 2025</option>
-            <option value="Winter 2024">Winter 2024</option>
-            <option value="Fall 2025">Fall 2025</option>
-            <option value="Fall 2024">Fall 2024</option>
-        </select>
-        
-        <section class="Enrolled">
-			<!-- Courses in which the student is enrolled -->
-            <!-- Display Course 1, 2, and 3 in the same line -->
-            <h2>Enrolled Courses</h2>
-            <hr>
-            <table class="cv">
-				<tr>
-					<td>
-						<div>
-                            <img src="course1.jpg" alt="Course 1">
-                            <p>Course Name: Web Development</p>
-                            <p>Course Code: WD381</p>
-                            <a href="attempt_quiz.html">Attempt Quiz</a>
-                        </div>
-					</td>
-					<td>
-						<div>
-                            <img src="course1.jpg" alt="Course 1">
-                            <p>Course Name: Data Structures</p>
-                            <p>Course Code: DS371</p>
-                            <a href="attempt_quiz.html">Attempt Quiz</a>
-                        </div>
-					</td>
-                    <td>
-						<div>
-                            <img src="course1.jpg" alt="Course 1">
-                            <p>Course Name: Database Systems</p>
-                            <p>Course Code: DB346</p>
-                            <a href="attempt_quiz.html">Attempt Quiz</a>
-                        </div>
-					</td>
-				</tr>
-				<!-- Display Course 4 and 5 in the same line -->
-				<tr>
-					<td>
-						<div>
-                            <img src="course1.jpg" alt="Course 1">
-                            <p>Course Name: Software Testing</p>
-                            <p>Course Code: ST484</p>
-                            <a href="attempt_quiz.html">Attempt Quiz</a>
-                        </div>
-					</td>
-					<td>
-						<div>
-                            <img src="course1.jpg" alt="Course 1">
-                            <p>Course Name: Software Architectures</p>
-                            <p>Course Code: SA396</p>
-                            <a href="attempt_quiz.html">Attempt Quiz</a>
-                        </div>
-					</td>
-				</tr>
-            </table> 
-        </section>
-        
-        <div>
-        </div>
-        <br>
-        <br>
-        <section class="Pending">
-			<!-- Courses in which the student is enrolled -->
-            <!-- Display Course 1, 2, and 3 in the same line -->
-            <h2>Pending Invitations</h2>
-            <hr>
-            <table class="cv">
-				<tr>
-					<td>
-                        <div>
-                            <img src="course2.jpg" alt="Course 2">
-                            <p>Course Name: Data Science</p>
-                            <p>Course Code: DS102</p>
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
-                        </div>
-                    </td> 
-                    <td>
-                        <div>
-                            <img src="course2.jpg" alt="Course 2">
-                            <p>Course Name: Machine Learning</p>
-                            <p>Course Code: ML105</p>
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
-                        </div>
-                    </td> 
-                </tr>
-            </table>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 LMS. All rights reserved.</p>
-    </footer>
+    <section class="Enrolled">
+      <h2>Enrolled Courses</h2>
+      <hr>
+      <table class="cv">
+        <tr>
+          <td>
+            <div class="course-tile">
+              <img src="course1.jpg" alt="Course 1">
+              <p>Course Name: Web Development</p>
+              <p>Course Code: WD381</p>
+              <a href="attempt_quiz.html">Attempt Quiz</a>
+            </div>
+          </td>
+          <td>
+            <div class="course-tile">
+              <img src="course1.jpg" alt="Course 1">
+              <p>Course Name: Data Structures</p>
+              <p>Course Code: DS371</p>
+              <a href="attempt_quiz.html">Attempt Quiz</a>
+            </div>
+          </td>
+          <td>
+            <div class="course-tile">
+              <img src="course1.jpg" alt="Course 1">
+              <p>Course Name: Database Systems</p>
+              <p>Course Code: DB346</p>
+              <a href="attempt_quiz.html">Attempt Quiz</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-tile">
+              <img src="course1.jpg" alt="Course 1">
+              <p>Course Name: Software Testing</p>
+              <p>Course Code: ST484</p>
+              <a href="attempt_quiz.html">Attempt Quiz</a>
+            </div>
+          </td>
+          <td>
+            <div class="course-tile">
+              <img src="course1.jpg" alt="Course 1">
+              <p>Course Name: Software Architectures</p>
+              <p>Course Code: SA396</p>
+              <a href="attempt_quiz.html">Attempt Quiz</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+    
+    <br><br>
+    
+    <section class="Pending">
+      <h2>Pending Invitations</h2>
+      <hr>
+      <table class="cv">
+        <tr>
+          <td id="pending1">
+            <div class="course-tile">
+              <img src="course2.jpg" alt="Course 2">
+              <p>Course Name: Data Science</p>
+              <p>Course Code: DS102</p>
+              <button class="accept" onclick="accept(1)">Accept</button>
+              <button class="decline" onclick="decline(1)">Decline</button>
+            </div>
+          </td>
+          <td id="pending2">
+            <div class="course-tile">
+              <img src="course2.jpg" alt="Course 2">
+              <p>Course Name: Machine Learning</p>
+              <p>Course Code: ML105</p>
+              <button class="accept" onclick="accept(2)">Accept</button>
+              <button class="decline" onclick="decline(2)">Decline</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 LMS. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function accept(number) {
+      var pendingCell = document.getElementById("pending" + number);
+
+      var paragraphs = pendingCell.getElementsByTagName("p");
+        var courseName = paragraphs[0].textContent;
+        var courseCode = paragraphs[1].textContent;
+        console.log(courseName, courseCode);
+        pendingCell.remove();
+
+
+        var acceptedCell = document.createElement("td");
+
+        acceptedCell.innerHTML = `
+            <div class="course-tile">
+            <img src="course1.jpg" alt="Enrolled Course">
+            <p>${courseName}</p>
+            <p>${courseCode}</p>
+            <u><a href="attempt_quiz.html">Attempt quiz</a></u>
+            </div>`;
+        console.log(acceptedCell);
+
+        var enrolledSection = document.getElementsByClassName("Enrolled")[0];
+        var acceptedTable = enrolledSection.getElementsByClassName("cv")[0];
+        console.log(acceptedTable);
+
+        var targetRow = acceptedTable.rows[1];
+
+        if (targetRow.cells.length < 3) {
+            targetRow.innerHTML = targetRow.innerHTML + acceptedCell.outerHTML;
+        } else {
+            acceptedTable.innerHTML = acceptedTable.innerHTML + "<tr>" + acceptedCell.outerHTML + "</tr>";
+        }
+
+    }
+    
+    function decline(number) {
+        let concatstring = "pending" + number;
+        var pendingCell = document.getElementById(concatstring);
+        pendingCell.remove();
+
+    }
+  </script>
 </body>
 </html>
