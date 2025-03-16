@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - LMS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="LMS Logo" style="width: 100px; height: 100px;">
+        <h1>LMS - Learning Management System</h1>
+    </header>
+    <div>
+        <nav>
+            <a href="index.html">Homepage</a>
+        </nav>
+    </div>
+    
+    <main class="login">
+        <h2>LMS Sign Up</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required><br>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+            <button type="button" onclick="signup()">Signup</button>
+
+        </form> 
+        <br>
+        <br>
+        <a href="login.html">Already have an accout? Login here</a>
+        <br>
+        <table id="box">
+            <tr><td id="loginSuccess"></td></tr>
+        </table>
+        
+    </main>
+    <footer>
+        <p>&copy; 2025 LMS. All rights reserved.</p>
+    </footer>
+
+    <script> 
+
+let UsernameErrorMessages = [];
+let PasswordErrorMessages = [];
+let EmailErrorMessages = [];
+
+function validateUserName() {
+    let username = document.getElementById('username').value;
+    UsernameErrorMessages = [];
+    let valid=true;
+    //length
+    if (username.length < 3 || username.length > 20) {
+        UsernameErrorMessages.push("Username must be between 3 and 20 characters");
+        valid=false;
+    }
+    //first character is a letter
+    if (!/^[a-zA-Z]/.test(username)) {
+        UsernameErrorMessages.push("Username must start with a letter");
+        valid=false;
+    }
+    //allowed characters
+    if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+        UsernameErrorMessages.push("Username must only contain letters, numbers, hyphens (-), and underscores (_)");
+        valid=false;
+    }
+    //spaces
+    if (/\s/.test(username)) {
+        UsernameErrorMessages.push("Username cannot contain spaces");
+        valid=false;
+    }
+
+    return valid;
+}
+
+function validatePassword() {
+    let password = document.getElementById('password').value;
+    PasswordErrorMessages = [];
+    let valid=true;
+    //length
+    if (password.length < 8) {
+        PasswordErrorMessages.push("Must be at least 8 characters long");
+        valid=false;
+    }
+    //special character
+    if (!/[!@#$%^&*()\-=+\[\]{};:'",.<>?/~]/.test(password)) {
+        PasswordErrorMessages.push("Must contain at least 1 special character");
+        valid=false;
+    }
+    //number
+    if (!/[0-9]/.test(password)) {
+        PasswordErrorMessages.push("Must contain at least 1 number");
+        valid=false;
+    }
+    //uppercase letter
+    if (!/[A-Z]/.test(password)) {
+        PasswordErrorMessages.push("Must contain at least 1 uppercase letter");
+        valid=false;
+    }
+    //lowercase letter
+    if (!/[a-z]/.test(password)) {
+        PasswordErrorMessages.push("Must contain at least 1 lowercase letter");
+        valid=false;
+    }
+    //space
+    if (/\s/.test(password)) {
+        PasswordErrorMessages.push("Cannot contain spaces");
+        valid=false;
+    }
+
+    return valid;
+}
+
+function validateConfirmPassword() {
+    let password = document.getElementById('password').value;
+    let confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password === confirmPassword) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateEmail() {
+    let email = document.getElementById('email').value;
+    let emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(com|net|ca|io)$/;
+    EmailErrorMessages = [];
+    let valid=true;
+    //space warning
+    if (email.includes(" ")) {
+        EmailErrorMessages.push("Cannot contain spaces");
+        valid=false;
+    }
+    //missing @ symbol warning
+    if (!email.includes("@")) {
+        EmailErrorMessages.push("Must contain the @ symbol");
+        valid=false;
+    }
+    //general email format warning
+    if (!emailRegex.test(email)) {
+        EmailErrorMessages.push("Must be a valid email address format (e.g. username@example.com)");
+        valid=false;
+    }
+    return valid;
+}
+
+
+function validateAndDisplay() {
+    var box = document.getElementById("box");
+    box.border = "2px";
+    box.style.borderCollapse = "collapse";
+    var text = document.getElementById("loginSuccess");
+    text.style.padding = "10px";
+    var valid=true;
+
+    text.innerHTML = "";
+
+    if (!validateUserName()) {
+        text.innerHTML += "<p>Invalid Username: " + UsernameErrorMessages.join(", ") + "</p>";
+        valid=false;
+    }
+    if (!validatePassword()) {
+        text.innerHTML += "<p>Invalid Password: " + PasswordErrorMessages.join(", ") + "</p>";
+        valid=false;
+    }
+    if (!validateConfirmPassword()) {
+        text.innerHTML += "<p>Passwords do not match.</p>";
+        valid=false;
+    }
+    if (!validateEmail()) {
+        text.innerHTML += "<p>Invalid Email: " + EmailErrorMessages.join(", ") + "</p>";
+        valid=false;
+    }
+    return valid;
+}
+
+function signup() {
+    if(validateAndDisplay()){
+        var box = document.getElementById("box");
+        box.border = "2px";
+        box.style.borderCollapse = "collapse";
+        var text = document.getElementById("loginSuccess");
+        text.style.padding = "10px";
+        text.innerHTML ="Signup successful! Redirecting to login...";
+
+
+        setTimeout(() => {window.location.href = "login.html"; }, 1000);
+    }
+}
+    </script>
+</body>
+</html>
