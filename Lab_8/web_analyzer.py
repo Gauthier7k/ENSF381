@@ -12,3 +12,4 @@ except Exception as e:
     print(f"Error fetching content: {e}")
 
 print(soup.prettify())
+
