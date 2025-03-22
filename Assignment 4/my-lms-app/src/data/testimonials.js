@@ -7,24 +7,24 @@ const testimonials = [
     },
 
     {
-        studentName: "",
-        courseName: "",
-        review: "",
-        rating: 
+        studentName: "Dorothy Lee",
+        courseName: "Database Systems",
+        review: "Very interesting couse.",
+        rating: 4
     },
 
     {
-        studentName: "",
-        courseName: "",
-        review: "",
-        rating: 
+        studentName: "Jeff Suderland",
+        courseName: "Software Architectures",
+        review: "Dives deep into how computers work in a low level language.",
+        rating: 3
     },
 
     {
-        studentName: "",
-        courseName: "",
-        review: "",
-        rating: 
+        studentName: "Dustin Zander",
+        courseName: "Data Science",
+        review: "An analytically and statistically driven course.",
+        rating: 2
     }
 
 ];
