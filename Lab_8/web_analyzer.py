@@ -31,23 +31,45 @@ def ex3(soup):
 def ex4(soup):
     Strings= (soup).split(" ")
     var = input("enterKeyword: ")
-    print("Occurances of ("+var+"):"+str(Strings.count(var)))
+    print("Occurances of the word: "+var+": "+str(Strings.count(var)))
 
-def ex5(soup):
-    wordlist = {}
-    Strings= (soup).split(" ")
-    for word in Strings:
-        word=word.lower()
-        try:
-            if ord(word[0])>=97 and ord(word[0])<=122 and wordlist[word]==None:
-                wordlist[word]=1
+def ex5(soup):    
+    words = soup.split()
+    
+    word_dict = {}
+    
+    for word in words:
+        word = word.lower()
+        clean_word = ""
+        
+        for char in word:
+            if 97 <= ord(char) <= 122:
+                clean_word += char
             else:
-                wordlist[word]+=1
-        except:
-            print("Not word: "+word)
-    print(wordlist)
-    #for word in wordlist:
-        #print(wordlist[word],word)
+                break
+        
+        if clean_word:
+            if clean_word in word_dict:
+                word_dict[clean_word] += 1
+            else:
+                word_dict[clean_word] = 1
+
+    top_five = []
+    
+    for i in range(5):        
+        best_word = None
+        best_count = 0
+        
+        for clean_word, count in word_dict.items():
+            if count > best_count:
+                best_word = clean_word
+                best_count = count
+        
+        top_five.append((best_word, best_count))
+        del word_dict[best_word]
+    print("\nTop 5 words by occurance:")
+    for word, count in top_five:
+        print(word, count)
 
 def ex6(soup):
     longest_p = None
@@ -93,13 +115,13 @@ def main():
 
     headings, links, paragrpahs = ex3(soup)
 
-    #ex4(soup.get_text())
+    ex4(soup.get_text())
 
     ex5(soup.get_text())
 
     ex6(soup)
 
-    #ex7(headings, links, paragrpahs)
+    ex7(headings, links, paragrpahs)
 
 if __name__ == "__main__":
     main()
