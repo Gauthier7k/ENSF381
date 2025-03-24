@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import Homepage from "./components/Homepage.js";
+import React from 'react';
 
+/* Default. REMEMBER TO REMOVE.
 function App() {
   return (
     <div className="App">
@@ -19,6 +22,13 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+*/
+
+function App() {
+  return (
+    <Homepage />
   );
 }
 
