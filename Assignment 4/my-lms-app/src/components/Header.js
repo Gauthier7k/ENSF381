@@ -14,15 +14,17 @@ function Header() {
                 <h1>LMS - Learning Management System</h1>
             </header>
 
-            <nav>
-                <BrowserRouter>
+            <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Homepage />} />
+                    <Route path="/Homepage" element={<Homepage />} />
                     <Route path="/CoursesPage" element={<CoursesPage />} />
                     <Route path="/LoginForm" element={<LoginForm />} />
                 </Routes>
-                </BrowserRouter>
-            </nav>
+            </BrowserRouter>
+
+            <a href="/CoursesPage">Hello</a>
+            <a href="/LoginForm">Hola</a>
+            <a href="/Homepage">Smething</a>
         </div>
     );
 }
