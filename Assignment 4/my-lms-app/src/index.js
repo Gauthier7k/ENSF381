@@ -1,3 +1,9 @@
+/*
+Group members:
+Nicholas Lui (30207036)
+Gauthier Appaix (30112909)
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
