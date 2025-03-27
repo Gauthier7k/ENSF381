@@ -1,28 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import courses from "../data/courses.js";
 import testimonials from "../data/testimonials.js"
 import image from "../images/course1.jpg"
 
+
 function MainSection() {
     var course1 = courses[0];
     var course2 = courses[1];
     var course3 = courses[2];
-    var num = 0;
     
-    localStorage.setItem('num', num);
-    //const [num, change] = useState(number);
-    useEffect( () => {
-            var num = (num + 1) % 4;
-        }, []);
+    useEffect(()=>{
+        var num = localStorage.getItem("num");
+        var temp = parseInt(num);
+        if (num) {
+            const newNum = (temp + 1) % 3;
+            localStorage.setItem("num", newNum);
+        }
+        else {
+            localStorage.setItem("num", 0);
+        }
+    }, [])
 
-    var test1 = testimonials[num];
-    console.log(num)
+    var index1 = parseInt(localStorage.getItem("num"));
+    var index2 = index1 + 1;
+    var testimonial1 = testimonials[index1];
+    var testimonial2 = testimonials[index2];
+
+    function starRating(rating) {
+        if (rating == 5) {
+            return "★★★★★";
+        }
+        else if (rating == 4) {
+            return "★★★★☆";
+        }
+        else if (rating == 3) {
+            return "★★★☆☆";
+        }
+        else if (rating == 2) {
+            return "★★☆☆☆";
+        }
+        else if (rating == 1) {
+            return "★☆☆☆☆";
+        }
+        else {
+            return "☆☆☆☆☆";
+        }
+    }
 
     return(
         <main>
-            <h2 onLoad={MainSection}>About LMS</h2>
+            <h2>About LMS</h2>
             <p>The Learning Management System (LMS) helps students and instructors manage courses.</p>
             <h3>Key Features:</h3>
             <div>
@@ -35,7 +64,7 @@ function MainSection() {
             <h2>Featured Courses</h2>
             <table>
                 <tr>
-                    <td width="50%" rowSpan="4">{<img src={image} width="300px"/>}</td>
+                    <td width="50%" rowSpan="4">{<img src={image} width="300px" />}</td>
                     <td width="50%">Course Name: {course1["name"]}</td>
                 </tr>
                 <tr>
@@ -49,7 +78,7 @@ function MainSection() {
                 </tr>
                 <tr><td><br /><br /></td></tr>
                 <tr>
-                    <td width="50%" rowSpan="4">{<img src={image} width="300px"/>}</td>
+                    <td width="50%" rowSpan="4">{<img src={image} width="300px" />}</td>
                     <td width="50%">Course Name: {course2["name"]}</td>
                 </tr>
                 <tr>
@@ -79,8 +108,22 @@ function MainSection() {
             
             <hr />
             <h2>Testimonials</h2>
-            WORK IN PROGRESS
-            
+            <u> {testimonial1["courseName"]} </u>
+            <br />
+            "{testimonial1["review"]}"
+            <br />
+            - {testimonial1["studentName"]}
+            <br />
+            Rating: {starRating(testimonial1["rating"])}
+
+            <br /><br />
+            <u> {testimonial2["courseName"]} </u>
+            <br />
+            "{testimonial2["review"]}"
+            <br />
+            - {testimonial2["studentName"]}
+            <br />
+            Rating: {starRating(testimonial2["rating"])}
         </main>
     );
 }
@@ -88,7 +131,7 @@ function MainSection() {
 function Homepage() {
     return(
         <div>
-            /* header issuses */
+            /*Header is work in progress*/
             <MainSection />
             <Footer />
         </div>
