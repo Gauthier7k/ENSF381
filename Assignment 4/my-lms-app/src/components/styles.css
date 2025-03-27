@@ -9,6 +9,21 @@ header {
     justify-content: space-between; /* Align logo left, text right */
 }
 
+/* Navigation Bar */
+nav {
+    background-color: #003366; /* Dark blue */
+    padding: 10px;
+    display: flex;
+    justify-content: space-around; /* Even spacing */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 10px;
+}
+
 /* Footer */
 footer {
     background-color: #004080;

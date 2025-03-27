@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import courses from "../data/courses.js";
@@ -131,7 +131,7 @@ function MainSection() {
 function Homepage() {
     return(
         <div>
-            /*Header is work in progress*/
+            <Header />
             <MainSection />
             <Footer />
         </div>
