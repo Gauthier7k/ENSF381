@@ -38,25 +38,37 @@
 }
 
 .flexBox {
+  border: #282c34;
   display: flex;
   justify-self: center;
-  width: 400px;
+  width: 500px;
   padding: 1rem;
-  border-width: 1px;
+  border-width: 10px;
   border-color: lightgrey;
   border-radius: 1px;
-  box-shadow: 1px;
+  box-shadow: 1000px;
 }
 
+
 .flexItem {
+  width: 1000px;
   margin-bottom: 1rem;
   padding: 0.5rem;
 }
 
+.textInput {
+  width: 100%;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #f8f9fa;
+}
+
 .submit {
   background-color: #007BFF;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
   color: white;
-  border-radius: 1px;
   padding: 0.5rem 1rem;
 }
 
