@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
 
 async function handleSubmit(event) {
     event.preventDefault();
@@ -13,6 +16,8 @@ async function handleSubmit(event) {
             },
             body: JSON.stringify({'username': username, 'password': password}),
         });
+
+        const data = await response.json();
 
         if (response.ok) {
             console.log('SUCCESS');
@@ -30,19 +35,19 @@ function Login() {
     return(
         <div className="flexBox">
             <h1>Login</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="flexItem">
                     <label for="username"><h2>Username:</h2></label>
                     <br />
-                    <input type="text" id="username" name="username" required></input>
+                    <input onChange={(e) => setUsername(e.target.value)} type="text" id="username" name="username" required ></input>
                 </div>
                 <div className="flexItem">
                     <label for="password"><h2>Password:</h2></label>
                     <br />
-                    <input type="password" id="password" name="password" required></input>
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required></input>
                 </div>
+                <button type="submit" className="submit">Login</button>
             </form>
-            <button type="submit" className="submit">Login</button>
         </div>
     );
 }
