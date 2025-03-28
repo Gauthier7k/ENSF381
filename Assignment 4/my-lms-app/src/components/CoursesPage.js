@@ -7,7 +7,8 @@ function CoursesPage() {
         <div className="courses-page">
             <Header />
             <div className="content">
-               
+               <CourseCatalog />
+               <EnrollmentList />
             </div>
             <Footer />
         </ div>
