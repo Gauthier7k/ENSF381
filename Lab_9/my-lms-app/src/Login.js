@@ -32,9 +32,17 @@ function Login() {
             <h1>Login</h1>
             <form>
                 <div className="flexItem">
-                    
+                    <label for="username"><h2>Username:</h2></label>
+                    <br />
+                    <input type="text" id="username" name="username" required></input>
+                </div>
+                <div className="flexItem">
+                    <label for="password"><h2>Password:</h2></label>
+                    <br />
+                    <input type="password" id="password" name="password" required></input>
                 </div>
             </form>
+            <button type="submit" className="submit">Login</button>
         </div>
     );
 }
