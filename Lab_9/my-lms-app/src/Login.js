@@ -28,6 +28,15 @@ async function handleSubmit(event) {
 
 function Login() {
     return(
-
+        <div className="flexBox">
+            <h1>Login</h1>
+            <form>
+                <div className="flexItem">
+                    
+                </div>
+            </form>
+        </div>
     );
 }
+
+export default Login
