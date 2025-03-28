@@ -38,7 +38,28 @@
 }
 
 .flexBox {
+  display: flex;
   justify-self: center;
   width: 400px;
-  
+  padding: 1rem;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 1px;
+  box-shadow: 1px;
+}
+
+.flexItem {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.submit {
+  background-color: #007BFF;
+  color: white;
+  border-radius: 1px;
+  padding: 0.5rem 1rem;
+}
+
+.submit:hover {
+  background-color: darkblue;
 }
