@@ -104,3 +104,10 @@
   color: red;
 }
 
+.predictionResult {
+  margin-top: 16px;
+  background-color: #DFF0D8;
+  border: 1px solid #3C763D;
+  padding: 12px;
+  border-radius: 4px;
+}

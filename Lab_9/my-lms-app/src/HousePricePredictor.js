@@ -114,9 +114,12 @@ function Predictor() {
         <div className="flexItemPredictor">
           <input type="submit" className="submit" value="Predict Price" />
         </div>
-      </form>
-      {predictedPrice !== null && (<div className="predictionResult">Predicted Rent Price: {predictedPrice} </div>
-      )}
+        {predictedPrice !== null && (
+            <div className="predictionResult">
+                Predicted Rent Price: {predictedPrice}
+            </div>
+        )}
+        </form>
     </div>
   );
 }

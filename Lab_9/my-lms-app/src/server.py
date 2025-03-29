@@ -36,7 +36,7 @@ def validate_login():
 
 @app.route('/predict_house_price', methods=['POST'])
 def predict_house_price():
-    model = joblib.load("./src/random_forest_model.pkl")
+    model = joblib.load("Lab_9/my-lms-app/src/random_forest_model.pkl")
     data = request.json
     cats = True if 'pets' in data and data['pets'] else False
     dogs = True if 'pets' in data and data['pets'] else False
