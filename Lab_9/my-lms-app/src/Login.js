@@ -1,55 +1,66 @@
 import React, { useState } from "react";
 import "./App.css";
+import {BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import predict from "./HousePricePredictor"
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-
-async function handleSubmit(event) {
-    event.preventDefault();
-
-    const backendEndpoint = 'http://127.0.0.1:5000/validate_login';
-    try {
-        const response = await fetch(backendEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({'username': username, 'password': password}),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            console.log('SUCCESS');
-        } else {
-            console.error("ERROR");
-        }
-    } catch (error) {
-        console.error("Error", error);
-    }
-    
-};
-
+<BrowserRouter>
+    <Routes>
+        <Route path="/HousePricePredictor" element={<predict />}/>
+    </Routes>
+</BrowserRouter>
 
 function Login() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+    var data;
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        fetch(
+            'http://127.0.0.1:5000/validate_login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'username': username, 'password': password}),
+            }
+        )
+    
+        .then ((response) => {
+            return response.json();
+                
+        })
+
+        .then((data) => {
+            if (data.success === true) {
+            navigate('/HousePricePredictor')
+            } else {
+            setMessage("Incorrect username and/or password!");
+        }})
+
+        .catch(error=>(setMessage("An error occurred during data fetch!")));
+    };
+
     return(
         <div className="flexBox">
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="flexItem">
+            <form>
+                <div >
                     <label for="username"><h2>Username:</h2></label>
-                    <br />
-                    <input onChange={(e) => setUsername(e.target.value)} type="text" id="username" name="username" required ></input>
+                    <input onChange={(e) => setUsername(e.target.value)} type="text" id="username" name="username" className="flexItem" required ></input>
                 </div>
-                <div className="flexItem">
+                <div>
                     <label for="password"><h2>Password:</h2></label>
-                    <br />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required></input>
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" className="flexItem" required></input>
                 </div>
-                <button type="submit" className="submit">Login</button>
+                <br />
+                <button className="submit" onClick={handleSubmit}>Login</button>
             </form>
+            <p className="message">{message}</p>
         </div>
     );
 }
 
-export default Login
+export default Login;
