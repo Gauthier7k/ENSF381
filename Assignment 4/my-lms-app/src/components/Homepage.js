@@ -4,29 +4,21 @@ import Footer from "./Footer.js";
 import courses from "../data/courses.js";
 import testimonials from "../data/testimonials.js"
 import image from "../images/course1.jpg"
-
+import './styles.css'
 
 function MainSection() {
     var course1 = courses[0];
     var course2 = courses[1];
     var course3 = courses[2];
-    
-    useEffect(()=>{
-        var num = localStorage.getItem("num");
-        var temp = parseInt(num);
-        if (num) {
-            const newNum = (temp + 1) % 3;
-            localStorage.setItem("num", newNum);
-        }
-        else {
-            localStorage.setItem("num", 0);
-        }
-    }, [])
 
-    var index1 = parseInt(localStorage.getItem("num"));
-    var index2 = index1 + 1;
-    var testimonial1 = testimonials[index1];
-    var testimonial2 = testimonials[index2];
+    var testid1 = Math.floor(Math.random() * testimonials.length);
+    var testid2 = Math.floor(Math.random() * testimonials.length);
+    while (testid2 === testid1) {
+        testid2 = Math.floor(Math.random() * testimonials.length);
+    }
+    
+    const testimonial1 = testimonials[testid1];
+    const testimonial2 = testimonials[testid2];
 
     function starRating(rating) {
         if (rating == 5) {
@@ -62,7 +54,7 @@ function MainSection() {
 
             <hr />
             <h2>Featured Courses</h2>
-            <table>
+            <table className="featuredCourses"> 
                 <tr>
                     <td width="50%" rowSpan="4">{<img src={image} width="300px" />}</td>
                     <td width="50%">Course Name: {course1["name"]}</td>

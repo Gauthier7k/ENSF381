@@ -4,14 +4,14 @@ import logo from "../images/logo.jpg";
 import "./styles.css";
 import Homepage from "./Homepage.js";
 import CoursesPage from "./CoursesPage.js";
-import LoginForm from "./LoginForm.js";
+import LoginPage from "./LoginPage.js";
 
 function Header() {
     <BrowserRouter>
         <Routes>
             <Route path="/Homepage" element={<Homepage />} />
             <Route path="/CoursesPage" element={<CoursesPage />} />
-            <Route path="/LoginForm" element={<LoginForm />} />
+            <Route path="/LoginPage" element={<LoginPage />} />
         </Routes>
     </BrowserRouter>
     return (
@@ -23,7 +23,7 @@ function Header() {
             <nav>
                 <a href="/Homepage">Home</a>
                 <a href="/CoursesPage">Courses</a>
-                <a href="/LoginForm">Login</a>
+                <a href="/LoginPage">Login</a>
             </nav>
         </div>
     );
