@@ -33,6 +33,10 @@ footer {
     margin-top: 20px;
 }
 
+.featuredCourses {
+  justify-self: center;
+}
+
 main {
     padding: 20px;
     text-align: center;

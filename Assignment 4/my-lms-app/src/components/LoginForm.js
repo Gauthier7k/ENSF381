@@ -54,7 +54,7 @@ function LoginForm() {
       setMessage('Login successful!');
       setMessageType('success');
       setTimeout(() => {
-        window.location.href = '/CoursePage';
+        window.location.href = '/CoursesPage';
       }, 2000);
     } else {
       setMessage('Invalid username or password.');
