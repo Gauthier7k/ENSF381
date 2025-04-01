@@ -1,0 +1,157 @@
+/* Header */
+header {
+    background-color: #004080; /* Deep blue */
+    color: white;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align logo left, text right */
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #003366; /* Dark blue */
+    padding: 10px;
+    display: flex;
+    justify-content: space-around; /* Even spacing */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.featuredCourses {
+  justify-self: center;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.courseCatalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content:space-evenly;
+  margin: 20px auto;
+}
+
+
+.CourseItem{
+    flex: 0 0 18%; 
+    background-color: #e6f2ff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.CourseItem img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .CourseItem button,
+  .login-button {
+    padding: 10px 20px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+
+  .CourseItem button:hover,
+  .login-button:hover  {
+    background-color: #0066cc;
+  }
+
+  .message {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 2px solid #003366;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .message.success {
+    background-color: #e0ffe0;
+    color: #006600;
+    border-color: #008000;
+  }
+  
+  .message.error {
+    background-color: #ffe0e0;
+    color: #990000;
+    border-color: #cc0000;
+  }
+
+
+  .loginForm {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    }
+  
+  .loginForm div{
+    margin-bottom: 15px;
+  }
+  
+  .loginForm label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #003366; 
+  }
+  
+  .loginForm input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .buttonContainer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+
+  
+  .link {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .link a {
+    color: #004080;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .link a:hover {
+    text-decoration: underline;
+  }

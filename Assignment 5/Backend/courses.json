@@ -1,0 +1,84 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "name": "Web Development",
+        "instructor": "Dr. John Smith",
+        "description": "Master HTML, CSS, and JavaScript.",
+        "duration": "8 weeks",
+        "image": "images/course1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Data Structures",
+        "instructor": "Dr. Adam Staks",
+        "description": "Learn about linked lists, stacks, queues, trees, and more.",
+        "duration": "10 weeks",
+        "image": "images/course1.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Database Systems",
+        "instructor": "Dr. Don Cequel",
+        "description": "Create ERD/EERD diagrams to build a database.",
+        "duration": "12 weeks",
+        "image": "images/course1.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Programming Fundamentals",
+        "instructor": "Dr. Cece McPonte",
+        "description": "Use pointers, arrays, classes, and more to create programs in C and C++.",
+        "duration": "12 weeks",
+        "image": "images/course1.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Software Architectures",
+        "instructor": "Dr. Reese Fi",
+        "description": "Go down to the assembly level and understand how computers execute programs.",
+        "duration": "12 weeks",
+        "image": "images/course1.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Data Science",
+        "instructor": "Dr. Steven Medean",
+        "description": "Master data cleaning, handling, processing, and analyzing.",
+        "duration": "10 weeks",
+        "image": "images/course2.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Machine Learning",
+        "instructor": "Dr. Gene P. Teene",
+        "description": "Learn about how programs can learn from data sets to improve their outcomes.",
+        "duration": "12 weeks",
+        "image": "images/course2.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Networks And Clouds",
+        "instructor": "Dr. Donna Severee",
+        "description": "Learn more about internet connections and cloud computing.",
+        "duration": "12 weeks",
+        "image": "images/course2.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Software Testing",
+        "instructor": "Dr. Brek Pont",
+        "description": "Effectively use testing and debugging tools to improve code.",
+        "duration": "8 weeks",
+        "image": "images/course2.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Capstone Project",
+        "instructor": "Dr. Dean Andrew",
+        "description": "Apply your learning! Combine everything you know into one major project to solve a real world problem.",
+        "duration": "24 weeks",
+        "image": "images/course2.jpg"
+      }
+    ]
+}
