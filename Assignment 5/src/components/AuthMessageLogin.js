@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from './LoginForm';
 import DisplayStatus from './DisplayStatus';
 
-function AuthMessage() {
+function AuthMessageLogin() {
   const auth = useContext(AuthContext) || {};
   const { message, messageType } = auth;
 
@@ -15,4 +15,4 @@ function AuthMessage() {
   );
 }
 
-export default AuthMessage;
+export default AuthMessageLogin;

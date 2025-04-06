@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import AuthMessage from './AuthMessage';
+import AuthMessage from './AuthMessageLogin';
 import './styles.css';
 
 export const AuthContext = createContext();

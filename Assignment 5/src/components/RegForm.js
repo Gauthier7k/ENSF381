@@ -1,10 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
-import AuthMessage from './AuthMessage';
+import AuthMessage from './AuthMessageSignUp';
 import './styles.css';
 
 export const AuthContext = createContext();
 
-function LoginForm() {
+function RegForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -39,9 +39,15 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!username || !password || !email) {
+      setMessage('Username, password, and email cannot be empty.');
+      setMessageType('error');
+      return;
+    }
 
-    if (!username || !password) {
-      setMessage('Username and password cannot be empty.');
+    if (username.length < 3 || username.length > 20) {
+      setMessage('Username must be between 3 and 20 characters long.');
       setMessageType('error');
       return;
     }
@@ -86,7 +92,7 @@ function LoginForm() {
             <input type="password" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email"/>
           </div>
           <div className="buttonContainer">
-            <button type="submit" className="login-button">Sing Up</button>
+            <button type="submit" className="signup-button">Sign Up</button>
           </div>
           <div className="link">
             <a href="/LoginPage">Already have an account? Login Here</a>
@@ -98,4 +104,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default RegForm;

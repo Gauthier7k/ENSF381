@@ -1,3 +1,7 @@
+# Group members:
+# Nicholas Lui (30207036)
+# Gauthier Appaix (30112909)
+
 from flask import Flask, request, jsonify
 import json
 import random
