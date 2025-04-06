@@ -3,10 +3,12 @@
 # Gauthier Appaix (30112909)
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
 import random
 
 app = Flask(__name__)
+CORS(app)
 
 try:
     with open('courses.json', 'r') as f:

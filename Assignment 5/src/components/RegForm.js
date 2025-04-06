@@ -15,26 +15,6 @@ function RegForm() {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  async function fetchData() {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const users = await response.json();
-
-      const fetchedUsernames = [];
-      const fetchedPasswords = [];
-
-      users.forEach(user => {
-        fetchedUsernames.push(user.username);
-        fetchedPasswords.push(user.email); 
-      });
-
-      setUsernames(fetchedUsernames);
-      setPasswords(fetchedPasswords);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-    }
-  }
-
   useEffect(() => {fetchData();}, []);
 
   const handleSubmit = (e) => {
@@ -145,25 +125,48 @@ function RegForm() {
       setMessageType('error');
       return;
     }
-
     
-
+    let usernameUnique = fetchData();
+    if (!usernameUnique) {
+      setMessage('Username is already taken');
+      setMessageType('error');
+    }
     setTimeout(() => {
       window.location.href = '/LoginPage';
     }, 2000);
 
-    /*const i = usernames.indexOf(username);
-    if (passwords[i] === password) {
-      setMessage('Login successful!');
-      setMessageType('success');
-      setTimeout(() => {
-        window.location.href = '/CoursesPage';
-      }, 2000);
-    } else {
-      setMessage('Invalid username or password.');
-      setMessageType('error');
-    }*/
   };
+
+  async function fetchData(event) {
+    
+    const backendEndpoint = "http://127.0.0.1:5000/register";
+
+    try {
+      const response = await fetch(backendEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({'username': username}, {'password': password}, {'email': email}),
+      });
+
+      const message = await response.json();
+      if (response.ok) {
+        
+        if (message.message == 'Username is already taken') {
+          return false;
+        }
+        return true;
+      }
+
+      else {
+        console.error('Error in form submission.');
+      }
+
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  }
 
   return (
     <AuthContext.Provider value={{ message, setMessage, messageType, setMessageType }}>
