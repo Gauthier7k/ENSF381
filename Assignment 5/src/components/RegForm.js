@@ -40,6 +40,14 @@ function RegForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lowercase = "abcdefghijklmnopqrstuvwxyz";
+    var alphabet = uppercase + lowercase;
+    var digits = "0123456789";
+    var specialUsername = " !@#$%^&*()=+[]{}|;:',.<>?/`~" + '"';
+    var specialPassword = specialUsername + "-_";
+    
+
     if (!username || !password || !email) {
       setMessage('Username, password, and email cannot be empty.');
       setMessageType('error');
@@ -52,13 +60,99 @@ function RegForm() {
       return;
     }
 
+    if (!alphabet.includes(username[0])) {
+      setMessage('Username must start with a letter.');
+      setMessageType('error');
+      return;
+    }
+
+    for (let i = 1; i < username.length; i++) {
+      if (username[i] == " ") {
+        setMessage('Username cannot have a space.');
+        setMessageType('error');
+        return;
+      }
+      else if (specialUsername.includes(username[i])) {
+        setMessage("Username cannot have any special characters except for hyphens (-) and underscores (_).");
+        setMessageType('error');
+        return;
+      }
+    }
+
     if (password.length < 8) {
       setMessage('Password must be at least 8 characters.');
       setMessageType('error');
       return;
     }
 
-    const i = usernames.indexOf(username);
+    if (password.includes(" ")) {
+      setMessage('Password cannot have a space.');
+      setMessageType('error');
+      return;
+    }
+
+    let lowercaseFlag = false;
+    let uppercaseFlag = false;
+    let digitFlag = false;
+    let specialFlag = false;
+    for (let i = 0; i < password.length; i++) {
+      if (lowercase.includes(password[i])) {
+        lowercaseFlag = true;
+      }
+      if (uppercase.includes(password[i])) {
+        uppercaseFlag = true;
+      }
+      if (digits.includes(password[i])) {
+        digitFlag = true;
+      }
+      if (specialPassword.includes(password[i])) {
+        specialFlag = true;
+      }
+    }
+
+    if (!(lowercaseFlag && uppercaseFlag && digitFlag && specialFlag)) {
+      setMessage('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+      setMessageType('error');
+      return;
+    }
+
+    if (confirmPassword != password) {
+      setMessage('Confirm password does not match password.');
+      setMessageType('error');
+      return;
+    }
+
+    if (email.includes(" ")) {
+      setMessage('Email cannot have a space.');
+      setMessageType('error');
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setMessage('Email must have @ symbol.');
+      setMessageType('error');
+      return;
+    }
+
+    let emailArray = email.split("@");
+    if (emailArray[0] != username) {
+      setMessage('Email must be in the form username@example.com');
+      setMessageType('error');
+      return;
+    }
+    if (!(emailArray[1].includes(".com") || emailArray[1].includes(".net") || emailArray[1].includes(".io"))) {
+      setMessage('Email must have one of the following domain names: .com, .net, .io');
+      setMessageType('error');
+      return;
+    }
+
+    
+
+    setTimeout(() => {
+      window.location.href = '/LoginPage';
+    }, 2000);
+
+    /*const i = usernames.indexOf(username);
     if (passwords[i] === password) {
       setMessage('Login successful!');
       setMessageType('success');
@@ -68,7 +162,7 @@ function RegForm() {
     } else {
       setMessage('Invalid username or password.');
       setMessageType('error');
-    }
+    }*/
   };
 
   return (
@@ -89,7 +183,7 @@ function RegForm() {
           </div>
           <div>
             <label htmlFor="password">Email:</label>
-            <input type="password" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email"/>
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email"/>
           </div>
           <div className="buttonContainer">
             <button type="submit" className="signup-button">Sign Up</button>
