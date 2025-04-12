@@ -11,18 +11,21 @@ app = Flask(__name__)
 CORS(app)
 
 try:
-    with open('courses.json', 'r') as f:
-        courses_data = json.load(f)
+    with open(r'Assignment 5\Backend\courses.json', 'r') as f:
+        data = json.load(f)
+        courses_data = data.get("courses", [])
 except Exception as e:
     courses_data = []
     print("Error loading courses.json:", e)
 
 try:
-    with open('testimonials.json', 'r') as f:
-        testimonials_data = json.load(f)
+    with open(r'Assignment 5\Backend\testimonials.json', 'r') as f:
+        data = json.load(f)
+        testimonials_data = data.get("testimonials", [])
 except Exception as e:
     testimonials_data = []
     print("Error loading testimonials.json:", e)
+
 
 #Student Registration API
 students = []
@@ -70,12 +73,14 @@ def login():
 #Testimonial API
 @app.route('/testimonials', methods=['GET'])
 def get_testimonials():
-    selected = random.sample(testimonials_data, 2)
-    return jsonify(selected)
-
+    if len(testimonials_data) < 2:
+        print("no data")
+        return jsonify(testimonials_data)
+    else:
+        selected = random.sample(testimonials_data, 2)
+        return jsonify(selected)
 
 #Enroll Courses API
-
 @app.route('/enroll/<int:student_Id>', methods=['POST'])
 def enroll_course(student_Id):
     data = request.get_json()
@@ -93,13 +98,12 @@ def drop_course(student_Id):
     if not course_to_drop:
         return jsonify({'message': 'No course information provIded'})
 
-
-#Get All Courses
+#Get Courses API
 @app.route('/courses', methods=['GET'])
 def get_courses():
-    pass
+    return jsonify(courses_data)
 
-#Get Student Courses
+#Get Student Courses API
 @app.route('/student_courses/<int:student_Id>', methods=['GET'])
 def get_student_courses(student_Id):
     pass
