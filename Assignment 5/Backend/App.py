@@ -84,7 +84,7 @@ def get_testimonials():
 @app.route('/enroll/<int:student_Id>', methods=['POST'])
 def enroll_course(student_Id):
     data = request.get_json()
-    course_to_enroll = data.get('course')
+    course_to_enroll = data.get('course') 
 
     if not course_to_enroll:
         return jsonify({'message': 'No course information provIded'})
@@ -93,10 +93,20 @@ def enroll_course(student_Id):
 @app.route('/drop/<int:student_Id>', methods=['DELETE'])
 def drop_course(student_Id):
     data = request.get_json()
-    course_to_drop = data.get('course')
+    course = data.get('course')
 
-    if not course_to_drop:
-        return jsonify({'message': 'No course information provIded'})
+    if not course:
+        return jsonify({'message': 'No course information provided'}), 400
+
+    student = next((s for s in students if s['Id'] == student_Id), None)
+    if not student:
+        return jsonify({'message': 'Student not found'}), 404
+
+    if course not in student['enrolled_courses']:
+        return jsonify({'message': f'Course {course} is not enrolled'}), 400
+
+    student['enrolled_courses'].remove(course)
+    return jsonify({'message': f'Dropped course {course} successfully'})
 
 #Get Courses API
 @app.route('/courses', methods=['GET'])
@@ -106,7 +116,10 @@ def get_courses():
 #Get Student Courses API
 @app.route('/student_courses/<int:student_Id>', methods=['GET'])
 def get_student_courses(student_Id):
-    pass
+    student = next((s for s in students if s['Id'] == student_Id), None)
+    if not student:
+        return jsonify([])
+    return jsonify(student['enrolled_courses'])
 
 if __name__ == '__main__':
     app.run(debug=True)
