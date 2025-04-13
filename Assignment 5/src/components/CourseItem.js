@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import courseImage from "../images/course2.jpg";
 import './styles.css'
 

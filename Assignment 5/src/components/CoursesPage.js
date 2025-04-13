@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import CourseCatalog from "./CourseCatalog";
 import EnrollmentList from "./EnrollmentList";
+import courses from "../data/courses.js";
 
 function CoursesPage() {
   const [enrollments, setEnrollments] = useState(() => {const stored = localStorage.getItem("enrollments");
@@ -19,8 +20,42 @@ function CoursesPage() {
         return [...prev, { ...course, count: 1 }];
       }
     });
+    try {
+      fetch('http://127.0.0.1:3000/enroll/' + localStorage.getItem("id"), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({'course': course}),
+      })
+    }
+    catch(e) {
+      console.log(e);
+    }
+    
   };
-    const handleDrop = (courseId) => setEnrollments((prev) => prev.filter((course) => course.id !== courseId));
+    const handleDrop = (courseId) => {
+      setEnrollments((prev) => prev.filter((course) => course.id !== courseId));
+      var course;
+      courses.forEach(element => {
+        if (element["id"] == courseId) {
+          course = element;
+        }
+      });
+      try {
+        fetch('http://127.0.0.1:3000/drop/' + localStorage.getItem("id"), {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({'course': course}),
+        })
+      }
+      catch(e) {
+        console.log(e);
+      }
+      
+    }
 
   return (
     <div>
